@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderMenu.vue deve exibir o menu 1`] = `
+<ul>
+  <li><a href="/">
+      Home
+
+      <!---->
+    </a></li>
+  <li><a href="/lib">
+      biblioteca
+
+      <!---->
+    </a></li>
+  <li><span>
+      Meditações
+
+      <ul><li><a href="/meditacoes/ate-que-ele-volte">
+            Até que ele volte
+          </a></li><li><a href="/meditacoes/sublime-beleza">
+            Sublime beleza
+          </a></li></ul></span></li>
+</ul>
+`;
