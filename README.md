@@ -1,4 +1,4 @@
-# cbpmais-app
+# cpbmais-app
 
 ## Project setup
 ```
