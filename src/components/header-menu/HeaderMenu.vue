@@ -4,7 +4,7 @@
       v-for="item in menu"
       :key="item.label"
     >
-      <a :href="item.link" :is="item.link ? 'a': 'span'">
+      <a :href="item.link" :is="item.link ? 'a': 'span'" class="menu__item">
         {{item.label}}
 
         <ul v-if="item.internal">
@@ -12,7 +12,7 @@
             v-for="internal in item.internal"
             :key="internal.name"
           >
-            <a :href="internal.link" :is="internal.link ? 'a': 'span'">
+            <a :href="internal.link" :is="internal.link ? 'a': 'span'" class="menu__internal">
               {{internal.label}}
             </a>
           </li>
