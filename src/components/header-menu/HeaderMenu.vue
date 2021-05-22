@@ -26,7 +26,9 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { Menu } from '@/custom-types'
 
-@Component
+@Component({
+  name: 'HeaderMenu'
+})
 export default class HelloWorld extends Vue {
   @Prop({ required: true })
   menu!: Menu;
