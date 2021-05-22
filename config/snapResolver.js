@@ -5,7 +5,7 @@ module.exports = {
    * @param {string} snapshotExtension
    * @returns string
    */
-  resolveSnapshotPath: (testPath, snapshotExtension) => testPath.slice(0, testPath.lastIndexOf('/')) + '/snapshot' + snapshotExtension,
-  resolveTestPath: (snapshotFilePath) => snapshotFilePath.slice(0, snapshotFilePath.lastIndexOf('/')) + '/unit.spec.ts',
-  testPathForConsistencyCheck: 'some/components/unit.spec.ts'
+  resolveSnapshotPath: (testPath, snapshotExtension) => testPath.replace(/\.spec\.ts/, snapshotExtension),
+  resolveTestPath: (snapshotFilePath, snapshotExtension) => snapshotFilePath.replace(snapshotExtension, '.spec.ts'),
+  testPathForConsistencyCheck: 'some/components/Component.spec.ts'
 }
