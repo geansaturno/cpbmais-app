@@ -15,7 +15,7 @@ describe('HeaderMenu.vue', () => {
     return mount(HeaderMenu, { propsData })
   }
 
-  it.skip('deve exibir o menu', () => {
+  it('deve exibir o menu', () => {
     menu = [
       {
         label: 'Home',
