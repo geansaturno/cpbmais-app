@@ -24,14 +24,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { Menu } from '@/custom-types'
+import { MenuItem } from '@/custom-types'
 
 @Component({
   name: 'HeaderMenu'
 })
 export default class HelloWorld extends Vue {
   @Prop({ required: true })
-  menu!: Menu;
+  menu!: MenuItem;
 }
 </script>
 

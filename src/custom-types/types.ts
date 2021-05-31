@@ -1,5 +1,5 @@
-export interface Menu {
+export interface MenuItem {
     label: string
     link?: string
-    internal?: Menu[]
+    internal?: MenuItem[]
 }

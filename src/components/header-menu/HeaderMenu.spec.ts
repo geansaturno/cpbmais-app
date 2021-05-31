@@ -1,15 +1,15 @@
 import 'jest'
 import { mount, Wrapper } from '@vue/test-utils'
 import HeaderMenu from './HeaderMenu.vue'
-import { Menu } from '@/custom-types'
+import { MenuItem } from '@/custom-types'
 
 interface MenuModel {
-  menu: Menu[]
+  menu: MenuItem[]
 }
 
 describe('HeaderMenu.vue', () => {
   let wrapper: Wrapper<HeaderMenu>
-  let menu :Menu[]
+  let menu :MenuItem[]
 
   function getWrapper (propsData: MenuModel): Wrapper<HeaderMenu> {
     return mount(HeaderMenu, { propsData })
