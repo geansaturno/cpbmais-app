@@ -4,10 +4,12 @@ import menu from '@/data/menu'
 
 Vue.use(Vuex)
 
+export const state = {
+  menu
+}
+
 export default new Vuex.Store({
-  state: {
-    menu
-  },
+  state,
   mutations: {
   },
   actions: {

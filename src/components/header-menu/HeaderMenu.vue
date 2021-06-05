@@ -4,20 +4,19 @@
       v-for="item in menu"
       :key="item.label"
     >
-      <a :href="item.link" :is="item.link ? 'a': 'span'" class="menu__item">
+      <router-link :to="item.link" :is="item.link ? 'router-link': 'span'" class="menu__item">
         {{item.label}}
-
         <ul v-if="item.internal" class="menu__wrapper menu__wrapper--internal">
           <li
             v-for="internal in item.internal"
             :key="internal.name"
           >
-            <a :href="internal.link" :is="internal.link ? 'a': 'span'" class="menu__internal">
+            <router-link :to="internal.link" :is="internal.link ? 'router-link': 'span'" class="menu__internal">
               {{internal.label}}
-            </a>
+            </router-link>
           </li>
         </ul>
-      </a>
+      </router-link> |
     </li>
   </ul>
 </template>

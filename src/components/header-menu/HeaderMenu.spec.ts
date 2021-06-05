@@ -1,18 +1,22 @@
 import 'jest'
-import { mount, Wrapper } from '@vue/test-utils'
+import { mount, Wrapper, createLocalVue } from '@vue/test-utils'
 import HeaderMenu from './HeaderMenu.vue'
 import { MenuItem } from '@/custom-types'
-
+import VueRouter from 'vue-router'
 interface MenuModel {
   menu: MenuItem[]
 }
+
+const localVue = createLocalVue()
+localVue.use(VueRouter)
+const router = new VueRouter()
 
 describe('HeaderMenu.vue', () => {
   let wrapper: Wrapper<HeaderMenu>
   let menu :MenuItem[]
 
   function getWrapper (propsData: MenuModel): Wrapper<HeaderMenu> {
-    return mount(HeaderMenu, { propsData })
+    return mount(HeaderMenu, { propsData, localVue, router })
   }
 
   it('deve exibir o menu', () => {

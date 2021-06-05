@@ -1,12 +1,14 @@
 import { MenuItem } from '@/custom-types'
 
-const home: MenuItem = {
-  link: '/',
-  label: 'Home'
-}
-
-const menu = [
-  home
+const menu: MenuItem[] = [
+  {
+    link: '/',
+    label: 'Home'
+  },
+  {
+    link: '/library',
+    label: 'Bibliotéca'
+  }
 ]
 
 export default menu

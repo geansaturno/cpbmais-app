@@ -2,23 +2,23 @@
 
 exports[`HeaderMenu.vue deve exibir o menu 1`] = `
 <ul class="menu menu__wrapper ">
-  <li><a href="/" class="menu__item">
+  <li><a href="#/" aria-current="page" class="menu__item router-link-exact-active router-link-active">
       Home
-
       <!---->
-    </a></li>
-  <li><a href="/lib" class="menu__item">
+    </a> |
+  </li>
+  <li><a href="#/lib" class="menu__item">
       biblioteca
-
       <!---->
-    </a></li>
+    </a> |
+  </li>
   <li><span class="menu__item">
       Meditações
-
-      <ul class="menu__wrapper menu__wrapper--internal"><li><a href="/meditacoes/ate-que-ele-volte" class="menu__internal">
+      <ul class="menu__wrapper menu__wrapper--internal"><li><a href="#/meditacoes/ate-que-ele-volte" class="menu__internal">
             Até que ele volte
-          </a></li><li><a href="/meditacoes/sublime-beleza" class="menu__internal">
+          </a></li><li><a href="#/meditacoes/sublime-beleza" class="menu__internal">
             Sublime beleza
-          </a></li></ul></span></li>
+          </a></li></ul></span> |
+  </li>
 </ul>
 `;

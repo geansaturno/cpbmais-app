@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CpbHeader.vue Deve renderizar o heder 1`] = `
+<nav class="header"><button class="header__menuButton">
+    <!---->
+  </button>
+  <header-menu-stub menu="[object Object],[object Object]" style="display: none;"></header-menu-stub> <img src="../../assets/logoCPBmais.png" alt="" class="header__logo">
+</nav>
+`;
