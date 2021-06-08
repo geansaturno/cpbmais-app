@@ -3,10 +3,11 @@
     <li
       v-for="item in menu"
       :key="item.label"
+      class="menu__item"
     >
-      <router-link :to="item.link" :is="item.link ? 'router-link': 'span'" class="menu__item">
+      <router-link :to="item.link" :is="item.link ? 'router-link': 'span'" class="">
         {{item.label}}
-        <ul v-if="item.internal" class="menu__wrapper menu__wrapper--internal">
+        <ul v-if="item.internal">
           <li
             v-for="internal in item.internal"
             :key="internal.name"
@@ -16,7 +17,7 @@
             </router-link>
           </li>
         </ul>
-      </router-link> |
+      </router-link>
     </li>
   </ul>
 </template>
@@ -35,10 +36,22 @@ export default class HelloWorld extends Vue {
 </script>
 
 <style lang="scss">
+@import 'src/assets/scss/variables.scss';
 
 .menu {
-  background-color: black;
-  color: white;
+  background-color: $g3;
+  width: 342px;
+
+  &__item {
+    color: $g1;
+    font-size: 21px;
+    padding: 19px 0;
+    margin: 0 22px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $g2;
+    }
+  }
 
   &__wrapper {
     list-style: none;

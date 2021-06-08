@@ -3,7 +3,7 @@
       <button class="header__menuButton" @click="toogleMenu">
         <logo-svg class="header__menuIcon"/>
       </button>
-      <header-menu v-show="showMenu" :menu="menu"/>
+      <header-menu v-show="showMenu" :menu="menu" class="header__menu"/>
       <img src="../../assets/logoCPBmais.png" alt="" class="header__logo">
   </nav>
 </template>
@@ -40,6 +40,13 @@ export default class CpbHeader extends Vue {
   background-color: $color-primary;
   position: relative;
   height: 72px;
+
+  &__menu {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    height: calc(100vh - 72px);
+  }
 
   &__menuButton {
     background-color: initial;

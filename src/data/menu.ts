@@ -3,11 +3,11 @@ import { MenuItem } from '@/custom-types'
 const menu: MenuItem[] = [
   {
     link: '/',
-    label: 'Home'
+    label: 'Sua Biblioteca'
   },
   {
-    link: '/library',
-    label: 'Bibliotéca'
+    link: '/meditations',
+    label: 'Meditações'
   }
 ]
 
