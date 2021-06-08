@@ -1,7 +1,8 @@
 <template>
   <nav class="header">
       <button class="header__menuButton" @click="toogleMenu">
-        <logo-svg class="header__menuIcon"/>
+        <menu-icon class="header__menuIcon" v-if="!showMenu"/>
+        <close-icon class="header__menuIcon" v-if="showMenu"/>
       </button>
       <header-menu v-show="showMenu" :menu="menu" class="header__menu"/>
       <img src="../../assets/logoCPBmais.png" alt="" class="header__logo">
@@ -11,11 +12,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import HeaderMenu from '../header-menu/HeaderMenu.vue'
-import LogoSvg from '../../assets/svg/menu.svg'
+import MenuIcon from '../../assets/svg/menu.svg'
+import CloseIcon from '../../assets/svg/close.svg'
 import { mapState } from 'vuex'
 
 @Component({
-  components: { HeaderMenu, LogoSvg },
+  components: { HeaderMenu, MenuIcon, CloseIcon },
   name: 'CpbHeader',
   computed: {
     ...mapState(['menu'])
