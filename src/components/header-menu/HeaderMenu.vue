@@ -40,7 +40,8 @@ export default class HelloWorld extends Vue {
 
 .menu {
   background-color: $g3;
-  width: 342px;
+  max-width: 350px;
+  width: 100vw;
 
   &__item {
     color: $g1;
