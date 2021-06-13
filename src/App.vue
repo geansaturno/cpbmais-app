@@ -18,7 +18,8 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-@import './assets/scss/reset.scss';
+@import '@/assets/scss/reset.scss';
+@import '@/assets/scss/components/fonts.scss';
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

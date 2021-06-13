@@ -39,7 +39,7 @@ export default class HelloWorld extends Vue {
 @import 'src/assets/scss/variables.scss';
 
 .menu {
-  background-color: $g3;
+  background-color: $g4;
   max-width: 350px;
   width: 100vw;
 

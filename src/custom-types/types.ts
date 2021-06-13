@@ -3,3 +3,10 @@ export interface MenuItem {
     link?: string
     internal?: MenuItem[]
 }
+
+export interface Meditations {
+    id: string
+    title: string
+    description: string
+    img: string
+}
