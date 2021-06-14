@@ -39,7 +39,7 @@ export default class HelloWorld extends Vue {
 @import 'src/assets/scss/variables.scss';
 
 .menu {
-  background-color: $g4;
+  background-color: $g5;
   max-width: 350px;
   width: 100vw;
 
@@ -50,14 +50,11 @@ export default class HelloWorld extends Vue {
     margin: 0 22px;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $g2;
+      border-bottom: 1px solid $g3;
     }
   }
 
   &__wrapper {
-    list-style: none;
-    padding-left: 0;
-
     &--internal {
       padding-left: 30px;
     }
