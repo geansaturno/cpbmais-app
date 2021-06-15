@@ -1,6 +1,9 @@
 <template>
   <div class="about">
     <h1>This is an about page {{id}}</h1>
+    <p v-if="reading">
+      {{reading.content}}
+    </p>
   </div>
 </template>
 
@@ -15,5 +18,11 @@ export default class Reading extends Vue {
     required: true
   })
   id!: string
+
+  private reading?: Reading
+
+  created (): void {
+    this.$store.dispatch('getDayReading', this.id).then((reading: Reading) => { this.reading = reading })
+  }
 }
 </script>

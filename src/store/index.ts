@@ -7,6 +7,7 @@ import {
   InMemoryCache,
   gql
 } from '@apollo/client'
+import { Meditations, Reading } from '@/custom-types'
 
 const apolloClient = new ApolloClient({
   uri: 'http://localhost:3050/',
@@ -28,7 +29,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async getMeditations (context) {
+    async getMeditations (context) :Promise<Meditations[]> {
       const request = await apolloClient.query({
         query: gql`
           {
@@ -45,6 +46,29 @@ export default new Vuex.Store({
       context.commit('setMeditations', request.data.meditations)
 
       return context.state.meditations
+    },
+    async getDayReading (_, readingId: string): Promise<Reading[]> {
+      const request = await apolloClient.query({
+        query: gql`
+        query($readingId: String, $date: String){
+          getReading(
+            readingId: $readingId
+            date: $date
+          ) {
+            title
+            verse
+            day
+            content
+          }
+        }
+        `,
+        variables: {
+          date: '15/06/2021',
+          readingId
+        }
+      })
+
+      return request.data.getReading
     }
   },
   modules: {

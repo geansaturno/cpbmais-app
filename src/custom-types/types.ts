@@ -10,3 +10,11 @@ export interface Meditations {
     description: string
     img: string
 }
+
+export interface Reading {
+    day: string,
+    title: string,
+    content: string,
+    image?: string,
+    verse?: string,
+}
