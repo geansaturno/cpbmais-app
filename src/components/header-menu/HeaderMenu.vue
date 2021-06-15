@@ -42,6 +42,7 @@ export default class HelloWorld extends Vue {
   background-color: $g5;
   max-width: 350px;
   width: 100vw;
+  z-index: $z-index-3;
 
   &__item {
     color: $g1;
