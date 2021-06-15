@@ -1,5 +1,5 @@
 <template>
-    <div class="readingAsset flexColumn">
+    <router-link :to="`read/${id}`" class="readingAsset flexColumn">
         <div class="readingAsset__imageContainer">
             <img :src="img" alt="title" class="readingAsset__image">
         </div>
@@ -9,7 +9,7 @@
         <div class="center readingAsset__description">
             {{description}}
         </div>
-    </div>
+    </router-link>
 </template>
 
 <script lang="ts">
@@ -19,6 +19,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'ReadingAsset'
 })
 export default class ReadingAsset extends Vue {
+    @Prop({
+      required: true
+    })
+    id!: string
+
     @Prop({
       required: true
     })
