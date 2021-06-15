@@ -77,13 +77,13 @@ export default class ReadingAsset extends Vue {
 
     &__title {
         margin-top: 10px;
-        font-size: 23px;
+        font-size: 18px;
         color: $color-primary;
     }
 
     &__description {
         margin-top: 22px;
-        font-size: 32px;
+        font-size: 25px;
         color: $g4;
     }
 }
