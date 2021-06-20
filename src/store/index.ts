@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import menu from '@/data/menu'
+import axios from 'axios'
 
 import {
   ApolloClient,
@@ -18,18 +19,20 @@ Vue.use(Vuex)
 
 export const state = {
   menu,
-  meditations: []
+  meditations: [] as Meditations[]
 }
 
 export default new Vuex.Store({
   state,
   mutations: {
-    setMeditations (state, meditations) {
-      state.meditations = meditations
+    setMeditations (state, meditations: Meditations[]) {
+      if (meditations.length) {
+        state.meditations = meditations
+      }
     }
   },
   actions: {
-    async getMeditations (context) :Promise<Meditations[]> {
+    async getMeditations (context) :Promise<void> {
       const request = await apolloClient.query({
         query: gql`
           {
@@ -44,8 +47,6 @@ export default new Vuex.Store({
       })
 
       context.commit('setMeditations', request.data.meditations)
-
-      return context.state.meditations
     },
     async getDayReading (_, readingId: string): Promise<Reading[]> {
       const request = await apolloClient.query({
@@ -69,8 +70,24 @@ export default new Vuex.Store({
       })
 
       return request.data.getReading
+    },
+    async fetchMeditations (context):Promise<void> {
+      const meditationsIdRequest = await axios.get('//localhost:3000/meditations')
+
+      if (meditationsIdRequest.data) {
+        const meditationsId = meditationsIdRequest.data as string[]
+        const meditationsPromise = await Promise.all(meditationsId.map(id => axios.get(`//localhost:3000/meditations/${id}`)))
+
+        const meditations = meditationsPromise.reduce((meditationsCollection, response) => {
+          if (response.data) {
+            meditationsCollection.push(response.data)
+          }
+
+          return meditationsCollection
+        }, [] as Meditations[])
+
+        context.commit('setMeditations', meditations)
+      }
     }
-  },
-  modules: {
   }
 })

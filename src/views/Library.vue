@@ -14,24 +14,22 @@
 </template>
 
 <script lang="ts">
-import { Meditations } from '@/custom-types'
 import { Component, Vue } from 'vue-property-decorator'
 import ReadingAsset from '@/components/reading-asset/ReadingAsset.vue'
+import { mapState } from 'vuex'
 
 @Component({
   name: 'Library',
   components: {
     ReadingAsset
+  },
+  computed: {
+    ...mapState(['meditations'])
   }
 })
 export default class Library extends Vue {
-  private meditations: Meditations[] = []
-
   created (): void {
-    console.log('created')
-    this.$store.dispatch('getMeditations').then((meditations) => {
-      this.meditations = meditations
-    })
+    this.$store.dispatch('fetchMeditations')
   }
 }
 </script>
