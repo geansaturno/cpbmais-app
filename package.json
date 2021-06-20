@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:run": "http-server dist/ -p 8080",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
@@ -51,6 +52,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "http-server": "^0.12.3",
     "sass": "^1.34.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.3.0",
