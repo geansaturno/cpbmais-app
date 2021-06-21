@@ -24,10 +24,20 @@ export const state = {
 
 export default new Vuex.Store({
   state,
+  getters: {
+    getMeditationById: (state) => (id: string) => {
+      return state.meditations.find(meditation => meditation.id === id)
+    }
+  },
   mutations: {
     setMeditations (state, meditations: Meditations[]) {
       if (meditations.length) {
         state.meditations = meditations
+      }
+    },
+    addMeditationIfNotExist (state, meditation: Meditations) {
+      if (!state.meditations.find(stateMeditation => stateMeditation.id === meditation.id)) {
+        state.meditations.push(meditation)
       }
     }
   },
@@ -87,6 +97,13 @@ export default new Vuex.Store({
         }, [] as Meditations[])
 
         context.commit('setMeditations', meditations)
+      }
+    },
+    async fetchMeditationById (context, id) {
+      const meditationRequest = await axios.get(`//localhost:3000/meditations/${id}`)
+
+      if (meditationRequest.data) {
+        context.commit('addMeditationIfNotExist', meditationRequest.data)
       }
     }
   }
